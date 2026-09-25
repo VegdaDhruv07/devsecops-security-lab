@@ -17,3 +17,11 @@ jobs:
 
       - name: Run Bandit
         run: bandit -r . -f txt
+      - name: Run Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+         scan-type: fs
+         scan-ref: .
+         severity: CRITICAL,HIGH
+         exit-code: 1
+      
