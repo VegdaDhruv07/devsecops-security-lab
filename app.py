@@ -1,9 +1,12 @@
 import subprocess
 
 def run_command(user_input):
-    subprocess.call(user_input, shell=True)
+    subprocess.run(
+        user_input.split(),
+        check=True
+    )
 
 password = input("Enter password: ")
-print("Password:", password)
+print("Password received.")
 
 run_command(input("Command: "))
